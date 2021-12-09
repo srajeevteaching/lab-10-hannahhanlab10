@@ -1,65 +1,47 @@
-<html>
-<head>
-<title>hhodges.lab10.py</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<style type="text/css">
-.s0 { color: #808080;}
-.s1 { color: #a9b7c6;}
-.s2 { color: #cc7832;}
-.s3 { color: #6a8759;}
-.s4 { color: #6897bb;}
-</style>
-</head>
-<body bgcolor="#2b2b2b">
-<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
-<tr><td><center>
-<font face="Arial, Helvetica" color="#000000">
-hhodges.lab10.py</font>
-</center></td></tr></table>
-<pre><span class="s0"># Hannah Hodges</span>
-<span class="s0"># CS 151, Dr. Rajeev</span>
-<span class="s0"># Lab 10</span>
-<span class="s0"># 12/2/2021</span>
+# Hannah Hodges
+# CS 151, Dr. Rajeev
+# Lab 10
+# 12/2/2021
 
 
-<span class="s2">def </span><span class="s1">main():</span>
-    <span class="s1">morsecode_dict = load_morse_dict()</span>
-    <span class="s1">file = input(</span><span class="s3">&quot;Enter file to decode:&quot;</span><span class="s1">)</span>
-    <span class="s1">decoded_result = decode_file(file</span><span class="s2">, </span><span class="s1">morsecode_dict)</span>
-    <span class="s1">print(decoded_result)</span>
+def main():
+    morsecode_dict = load_morse_dict()
+    file = input("Enter file to decode:")
+    decoded_result = decode_file(file, morsecode_dict)
+    print(decoded_result)
 
 
-<span class="s2">def </span><span class="s1">load_morse_dict():</span>
-    <span class="s1">morsedict = {}</span>
-    <span class="s1">open(</span><span class="s3">&quot;mosecode.txt&quot;</span><span class="s2">, </span><span class="s3">&quot;r&quot;</span><span class="s1">)</span>
-    <span class="s1">morsedict = readfile(</span><span class="s3">&quot;morsecode.txt&quot;</span><span class="s1">)</span>
-    <span class="s1">lines = readfile.readlines()</span>
-    <span class="s2">for </span><span class="s1">line </span><span class="s2">in </span><span class="s1">lines:</span>
-        <span class="s1">key</span><span class="s2">, </span><span class="s1">value = line.split()</span>
-        <span class="s1">morsedict[key] = value</span>
-        <span class="s2">return </span><span class="s1">morsedict</span>
+def load_morse_dict():
+    morsedict = {}
+    open("mosecode.txt", "r")
+    morsedict = readfile("morsecode.txt")
+    lines = readfile.readlines()
+    for line in lines:
+        key, value = line.split()
+        morsedict[key] = value
+        return morsedict
 
 
-<span class="s2">def </span><span class="s1">decode_file(file</span><span class="s2">, </span><span class="s1">morsecode_dict):</span>
-    <span class="s1">code = </span><span class="s3">''</span>
-    <span class="s1">morsecode_dict = dict(morsecode_dict)</span>
-    <span class="s1">open(file)</span>
-    <span class="s2">for </span><span class="s1">line </span><span class="s2">in </span><span class="s1">file():</span>
-        <span class="s1">code += line + </span><span class="s3">''</span>
-    <span class="s1">decode_val = </span><span class="s3">''</span>
-    <span class="s1">letter = </span><span class="s3">''</span>
-    <span class="s2">for </span><span class="s1">letter </span><span class="s2">in </span><span class="s1">code:</span>
-        <span class="s1">counter = </span><span class="s4">0</span>
-        <span class="s2">if </span><span class="s1">letter == </span><span class="s3">''</span><span class="s1">:</span>
-            <span class="s1">letter += letter</span>
-        <span class="s2">else</span><span class="s1">:</span>
-            <span class="s1">counter = counter + </span><span class="s4">1</span>
-            <span class="s2">if </span><span class="s1">counter == </span><span class="s4">2</span><span class="s1">:</span>
-                <span class="s1">decode_val = decode_val + </span><span class="s3">''</span>
-        <span class="s2">return </span><span class="s1">decode_val</span>
+def decode_file(file, morsecode_dict):
+    code = ''
+    morsecode_dict = dict(morsecode_dict)
+    open(file)
+    for line in file():
+        code += line + ''
+    decode_val = ''
+    letter = ''
+    for letter in code:
+        counter = 0
+        if letter == '':
+            letter += letter
+        else:
+            counter = counter + 1
+            if counter == 2:
+                decode_val = decode_val + ''
+        return decode_val
 
 
-<span class="s1">main()</span>
+main()
 
 
 
@@ -72,6 +54,3 @@ hhodges.lab10.py</font>
 
 
 
-</pre>
-</body>
-</html>
